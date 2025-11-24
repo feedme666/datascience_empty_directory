@@ -1,0 +1,11 @@
+{
+    "name": "projectA_datascience",
+    "image": "python-base:latest",
+    "mounts":[
+        "source=${localWorkspaceFolder}/src,target=/app/src,type=bind",
+        "source=${localWorkspaceFolder}/data,target=/app/data,type=bind"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    }
+}
