@@ -1,10 +1,20 @@
 {
     "name": "projectA_datascience",
     "image": "python-base:latest",
-    "mounts":[
-        "source=${localWorkspaceFolder}/src,target=/app/src,type=bind",
-        "source=${localWorkspaceFolder}/data,target=/app/data,type=bind"
-    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind",
+    "workspaceFolder": "/workspaces",
+    "postCreateCommand": "uv sync",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "openai.chatgpt"
+            ]
+        }
+    },
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     }

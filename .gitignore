@@ -1,5 +1,48 @@
-**/.DS_store
-**/.ipynb_checkpoints
-**/.vscode
-**/__pycache__
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# DevContainer generated files
+.devcontainer/*.log
+.devcontainer/features/
+
+# uv virtual environment
+.venv/
+
+# uv lock file（分析テンプレートでは ignore 推奨）
+uv.lock
+
+# Environment files
 .env
+*.env
+
+# OS / Desktop
+.DS_Store
+Thumbs.db
+
+# OneDrive conflicted copies
+~$*
+*.lnk
+
+# Data（絶対に push しない）
+data/
+data/**
+
+# Model, artifacts
+models/
+checkpoints/
+results/
+outputs/
+logs/
+
+# Build artifacts
+*.tmp
+*.bak
