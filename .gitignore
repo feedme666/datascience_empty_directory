@@ -1,48 +1,71 @@
-# Python
+# ==========================================
+# Template-level .gitignore
+# （ディレクトリ構造だけ残し、実ファイルは無視）
+# ==========================================
+
+# --- Python ---
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
 
-# Jupyter
+# --- Jupyter ---
 .ipynb_checkpoints/
 
-# VS Code
+# --- VS Code ---
 .vscode/
 
-# DevContainer generated files
-.devcontainer/*.log
+# --- DevContainer ---
 .devcontainer/features/
+.devcontainer/*.log
 
-# uv virtual environment
+# --- Virtual environments ---
 .venv/
-
-# uv lock file（分析テンプレートでは ignore 推奨）
-uv.lock
-
-# Environment files
 .env
 *.env
 
-# OS / Desktop
+# --- uv ---
+# uv.lock は「分析プロジェクト」では commit することもあるが
+# テンプレートでは不要のため ignore
+uv.lock
+
+# --- OS / System files ---
 .DS_Store
 Thumbs.db
 
-# OneDrive conflicted copies
-~$*
-*.lnk
+# ==========================================
+# Data science template rules
+# （ディレクトリ構造を残し、中身の実データを無視）
+# ==========================================
 
-# Data（絶対に push しない）
-data/
-data/**
+# data/ ディレクトリの中身は ignore するが、
+# ディレクトリそのものは残すために例外を入れる
+data/*
+!data/.gitkeep
 
-# Model, artifacts
-models/
-checkpoints/
-results/
-outputs/
-logs/
+notebooks/*
+!notebooks/.gitkeep
 
-# Build artifacts
+models/*
+!models/.gitkeep
+
+outputs/*
+!outputs/.gitkeep
+
+reports/*
+!reports/.gitkeep
+
+logs/*
+!logs/.gitkeep
+
+references/*
+!references/.gitkeep
+
+docs/*
+!docs/.gitkeep
+
+# ==========================================
+# その他不要ファイル
+# ==========================================
 *.tmp
 *.bak
+*.swp

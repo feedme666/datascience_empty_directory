@@ -1,9 +1,11 @@
 {
     "name": "projectA_datascience",
     "image": "python-base:latest",
+
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind",
     "workspaceFolder": "/workspaces",
-    "postCreateCommand": "uv sync",
+
+    "postCreateCommand": "if [ -f pyproject.toml ]; then uv sync; fi",
 
     "customizations": {
         "vscode": {
@@ -15,6 +17,7 @@
             ]
         }
     },
+
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     }
