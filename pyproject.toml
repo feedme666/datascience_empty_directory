@@ -8,4 +8,7 @@ dependencies = [
   "scikit-learn",
   "polars",
   "ipykernel",
+  "matplotlib",
+  "matplotlib-fontja",
+  "seaborn",
 ]
