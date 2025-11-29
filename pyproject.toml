@@ -7,4 +7,5 @@ dependencies = [
   "numpy",
   "scikit-learn",
   "polars",
+  "ipykernel",
 ]
