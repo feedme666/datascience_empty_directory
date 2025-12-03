@@ -14,19 +14,6 @@ __pycache__/
 # --- VS Code ---
 .vscode/
 
-# --- DevContainer ---
-.devcontainer/features/
-.devcontainer/*.log
-
-# --- Virtual environments ---
-.venv/
-.env
-*.env
-
-# --- uv ---
-# uv.lock は「分析プロジェクト」では commit することもあるが
-# テンプレートでは不要のため ignore
-uv.lock
 
 # --- OS / System files ---
 .DS_Store

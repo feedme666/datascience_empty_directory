@@ -18,16 +18,13 @@ This repository couples a production-ready data science directory layout with th
 ├── references/                   # papers, datasets licenses, etc.
 ├── reports/
 │   └── figures/                  # static exports for stakeholders
-├── src/
-│   ├── config/                   # settings, secrets templates
-│   ├── data/                     # ingestion & loaders
-│   ├── features/                 # feature engineering helpers
-│   ├── models/                   # training/inference modules
-│   ├── test/                     # unit / regression tests
-│   └── main.py                   # orchestration entry point
-├── .devcontainer/devcontainer.json
-├── pyproject.toml
-└── uv.lock
+└── src/
+    ├── config/                   # settings, secrets templates
+    ├── data/                     # ingestion & loaders
+    ├── features/                 # feature engineering helpers
+    ├── models/                   # training/inference modules
+    ├── test/                     # unit / regression tests
+    └── main.py                   # orchestration entry point
 ```
 
 ## Folder Roles
@@ -54,30 +51,6 @@ This repository couples a production-ready data science directory layout with th
    ```
 5. Use `uv run python src/main.py` to execute the orchestrated pipeline.
 
-## Docker / Dev Container Workflow
-The repository ships with `.devcontainer/devcontainer.json`, which expects an image named `python-base:latest`.
-
-1. Build or pull the base image (point `-f` to the Dockerfile you maintain for this stack):  
-   ```bash
-   docker build -t python-base:latest -f path/to/Dockerfile .
-   ```  
-   _If you already host a preferred base image, update the `image` field instead._
-2. Open the folder in VS Code and run “Dev Containers: Reopen in Container”, or start it manually:  
-   ```bash
-   docker run --rm -it \
-     -v "$(pwd)":/workspaces \
-     -w /workspaces \
-     python-base:latest \
-     bash
-   ```
-3. Inside the container, run `uv sync` (the `postCreateCommand` handles this automatically for Dev Containers) and proceed with notebooks or CLI tools.
-4. When you are done experimenting, reclaim disk space by pruning stopped containers and dangling resources:  
-   ```bash
-   docker container prune -f
-   # or use the broader cleanup
-   docker system prune -a -f
-   ```
-
 ## Recommended Workflow
 - Keep exploratory notebooks lightweight; migrate stable code to `src/` modules with tests under `src/test/`.
 - Store credentials or environment secrets in `src/config/` templates and load them via environment variables rather than committing plaintext secrets.
@@ -90,8 +63,3 @@ The repository ships with `.devcontainer/devcontainer.json`, which expects an im
 3. **Run tests/notebooks** relevant to your change.
 4. **Commit & push**, then open a PR that links to any related issues.
 5. **Discuss & iterate** on review feedback; keep documentation updated alongside code changes.
-
-Questions or suggestions? Open an issue so we can refine the template together.
-
-Run `docker container prune -f`
-or `docker system prune -a -f` to remove unused containers.
